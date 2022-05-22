@@ -1,0 +1,14 @@
+clc;
+close all;
+clear all;
+a=imread('cameraman.tif');
+figure(1);
+imshow(a);
+title('original image');
+l=255; 
+d=l/log10(1+l);
+e=d*log10(1+double(a));
+f=uint8(e);
+figure(4);
+imshow(f);
+title('log transform');

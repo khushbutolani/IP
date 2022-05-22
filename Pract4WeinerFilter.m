@@ -1,0 +1,12 @@
+clear all;
+clc;
+Ioriginal = imread('cameraman.tif'); 
+subplot(2,2,1);
+imshow(Ioriginal);
+title('Original Image');
+PSF = fspecial('motion',21,11);
+Idouble = im2double(Ioriginal);
+blurred = imfilter(Idouble,PSF,'conv','circular');
+subplot(2,2,2);
+imshow(blurred);
+title('Blurred Image');

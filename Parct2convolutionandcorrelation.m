@@ -1,0 +1,21 @@
+clc;
+close all;
+clear all;
+figure,
+k=(checkerboard>0.8);
+subplot(1,3,1); imshow(k); title('Image1');
+k1=(checkerboard>0.5);
+subplot(1,3,2); imshow(k1); title('Image2');
+r=corr2(k,k1);
+disp('r'); subplot(1,3,3);imshow(r); title('Correlated img'); disp(r);
+figure;
+a=zeros(256,256);
+a(110:140,110:140)=1;
+subplot(2,2,1),imshow(a),title('First input image');
+b=zeros(256,256);
+b(170:200,170:200)=1;
+subplot(2,2,2), imshow(b), title('Second input image');
+d=conv2(a,b,'same');
+subplot(2,2,3), imshow(d),title('Convolution of input images in time domain');
+e=imfilter(a,b);
+subplot(2,2,4), imshow(e),title('Correlation of input images in time domain');
